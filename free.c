@@ -1,9 +1,9 @@
 #include "memory.h"
 
 /**
- * free_memory_p - Free a pointer
- *
- * @ptr: Pointer to free
+ * free_memory_p - Function that prints pointer variable
+ * @ptr: Pointer to be freed
+ * Return: Return void
  **/
 void free_memory_p(void *ptr)
 {
@@ -17,9 +17,9 @@ void free_memory_p(void *ptr)
 }
 
 /**
- * free_memory_pp - Free a double pointer
- *
- * @ptr: Double pointer to free
+ * free_memory_pp - Function that free pointer pointing to address of another
+ * @ptr: free double pointer
+ * Return: Return void
  **/
 void free_memory_pp(void **ptr)
 {
@@ -30,4 +30,3 @@ void free_memory_pp(void **ptr)
 
 	free_memory_p(ptr);
 }
-

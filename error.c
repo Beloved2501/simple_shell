@@ -1,13 +1,11 @@
-#include "error.h"
 #include "general.h"
 #include "text.h"
+#include "error.h"
 
 /**
- * message_selector - Select the message that match with the error_code
- *
- * @info: General information about the shell
- *
- * Return: Error message
+ * message_selector - function that selects the command
+ * @info: Arguments passed
+ * Return: Return the error message
  **/
 char *message_selector(general_t info)
 {
@@ -28,14 +26,14 @@ char *message_selector(general_t info)
 }
 
 /**
- * error - Print the error
- *
- * @info: General information about the shell
+ * error - Function that print the error
+ * @info: Arguments passed
+ * Return: Return void
  **/
 void error(general_t *info)
 {
-	char *message;
 	char *number;
+	char *message;
 	char *aux;
 	int size_number, size_message;
 
@@ -61,15 +59,15 @@ void error(general_t *info)
 }
 
 /**
- * error_extra - Print the error with extra information
- *
- * @info: General information about the shell
- * @extra: Extra information
+ * error_extra - function that prints error with more information
+ * @info: Argument passed in the shell
+ * @extra: More information
+ * Return: Return void
  **/
 void error_extra(general_t *info, char *extra)
 {
-	char *message, *number, *aux, *aux2;
-	int size_number, size_message, size_extra;
+	char *aux, *aux2, *number, *message;
+	int size_extra, size_number, size_message;
 
 	number = NULL;
 	message = message_selector(*info);

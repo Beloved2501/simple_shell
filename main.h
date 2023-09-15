@@ -1,12 +1,12 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
 #include "general.h"
+#include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h>
 
-/* Entry point of the shell */
+/* Entry point of every program */
 void start(general_t *info);
 
 #endif

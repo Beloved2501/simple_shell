@@ -2,12 +2,11 @@
 #include "main.h"
 
 /**
- * main - Entry Point
- * @argc: number of arguments received
- * @argv: arguments received
- * Return: 0
+ * main - Entry of every program
+ * @argc: Arguments count
+ * @argv: arguments vector
+ * Return: Return 0
  **/
-
 int main(int argc, char **argv)
 {
 	general_t *info;

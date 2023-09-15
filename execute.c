@@ -1,14 +1,14 @@
 #include "commands.h"
-#include "general.h"
 #include "memory.h"
+#include "general.h"
 
 /**
- * execute - Execute a command in other process
- *
+ * execute - Function that execute command in different process
  * @command: Command to execute
  * @arguments: Arguments of the @command
- * @info: General info about the shell
- * @buff: Line readed
+ * @info: Arguments passed in the program
+ * @buff: Arguments passed in the progam
+ * Return: Return void
  **/
 void execute(char *command, char **arguments, general_t *info, char *buff)
 {
@@ -41,16 +41,13 @@ void execute(char *command, char **arguments, general_t *info, char *buff)
 	}
 }
 
-
 /**
- * current_directory - Execute the command if the order require
- *
- * @cmd: Command to execute
+ * current_directory - Function that execute requirement of other command
+ * @cmd: command variable declared
  * @arguments: Arguments of the @cmd
- * @buff: Line readed
- * @info: General info about the shell
- *
- * Return: Status of the operations
+ * @buff: Argument passed in the program
+ * @info: Argument passed in the program
+ * Return: Return operation
  **/
 int current_directory(char *cmd, char **arguments, char *buff, general_t *info)
 {
@@ -66,4 +63,3 @@ int current_directory(char *cmd, char **arguments, char *buff, general_t *info)
 
 	return (_FALSE);
 }
-

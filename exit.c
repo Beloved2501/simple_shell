@@ -2,11 +2,8 @@
 #include "general.h"
 
 /**
- * bin_exit - Implementation of the exit builtin
- * Description: Free all the memory used and
- * exit with the last status_code
- *
- * @info: Information about the shell
+ * bin_exit - function that implement the exit command
+ * @info: Arguments passed
  * @arguments: Arguments received
  **/
 void bin_exit(general_t *info, char **arguments)
@@ -31,13 +28,10 @@ void bin_exit(general_t *info, char **arguments)
 }
 
 /**
- * number_controller - Control the argument of exit
- *
- * @info: General information about the shell
- * @number: Argument of the builtin
- *
- * Return: If the actual argument is valid, return _TRUE
- * if not, return _FALSE
+ * number_controller - Function that control the argument exit
+ * @info: Arguments passed
+ * @number: Argument to be received
+ * Return: Return _TRUE if argument valid, _FALSE if not
  **/
 int number_controller(general_t *info, char *number)
 {
@@ -60,4 +54,3 @@ int number_controller(general_t *info, char *number)
 
 	return (_TRUE);
 }
-
