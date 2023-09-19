@@ -10,43 +10,43 @@
  **/
 char **split_words(char *line, const char *sep)
 {
-	char **words, **tmp, *token;
-	size_t new_size, old_size;
+	char **words, **temp, *tokens;
+	size_t new_sizes, old_sizes;
 
-	old_size = sizeof(char *);
-	words = malloc(old_size);
+	old_sizes = sizeof(char *);
+	words = malloc(old_sizes);
 	if (words != NULL)
 	{
-		new_size = 1;
-		token = strtok(line, sep);
-		while (token)
+		new_sizes = 1;
+		tokens = strtok(line, sep);
+		while (tokens)
 		{
-			if (token[0] == '#')
+			if (tokens[0] == '#')
 				break;
-			tmp = _realloc(words, old_size, (new_size + 1) * sizeof(char *));
-			old_size = (new_size + 1) * sizeof(char *);
-			if (tmp == NULL)
+			temp = _realloc(words, old_sizes, (new_sizes + 1) * sizeof(char *));
+			old_sizes = (new_sizes + 1) * sizeof(char *);
+			if (temp == NULL)
 				break;
 
-			words = tmp;
-			++new_size;
+			words = temp;
+			++new_sizes;
 
-			words[new_size - 2] = malloc(_strlen(token) + 1);
+			words[new_sizes - 2] = malloc(_strlen(tokens) + 1);
 			if (words == NULL)
 			{
 				free(words);
-				free(tmp);
+				free(temp);
 			}
 
-			if (words[new_size - 2] != NULL)
-				_strcpy(words[new_size - 2], token);
+			if (words[new_sizes - 2] != NULL)
+				_strcpy(words[new_sizes - 2], tokens);
 
-			token = strtok(NULL, sep);
+			tokens = strtok(NULL, sep);
 
-			tmp = NULL;
+			temp = NULL;
 		}
 
-		words[new_size - 1] = NULL;
+		words[new_sizes - 1] = NULL;
 	}
 
 	return (words);
@@ -65,7 +65,7 @@ char **split_words(char *line, const char *sep)
  **/
 char *join_words(char *word1, char *word2, char *word3, const char *sep)
 {
-	char *aux;
+	char *auxil;
 	int size_str1, size_str2, size_str3, size_sep;
 
 	size_str1 = size_str2 = size_sep = 0;
@@ -90,16 +90,16 @@ char *join_words(char *word1, char *word2, char *word3, const char *sep)
 	else
 		sep = "";
 
-	aux = malloc(size_str1 + size_str2 + size_sep + size_str3 + size_sep + 2);
-	if (aux == NULL)
+	auxil = malloc(size_str1 + size_str2 + size_sep + size_str3 + size_sep + 2);
+	if (auxil == NULL)
 		return (NULL);
 
-	aux = _strcpy(aux, word1);
-	aux = _strcat(aux, (char *)sep);
-	aux = _strcat(aux, word2);
-	aux = _strcat(aux, (char *)sep);
-	aux = _strcat(aux, word3);
-	aux = _strcat(aux, "\n");
+	auxil = _strcpy(auxil, word1);
+	auxil = _strcat(auxil, (char *)sep);
+	auxil = _strcat(auxil, word2);
+	auxil = _strcat(auxil, (char *)sep);
+	auxil = _strcat(auxil, word3);
+	auxil = _strcat(auxil, "\n");
 
-	return (aux);
+	return (auxil);
 }

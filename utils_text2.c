@@ -27,24 +27,24 @@ int digits(int n)
  **/
 char *to_string(int number)
 {
-	int n_digits, i;
-	char *_number;
+	int n_dgts, i;
+	char *_num;
 
-	n_digits = digits(number);
-	_number = malloc(n_digits * sizeof(char) + 2);
+	n_dgts = digits(number);
+	_num = malloc(n_dgts * sizeof(char) + 2);
 	if (number == 0)
 	{
-		_number[0] = '0';
-		_number[1] = '\0';
-		return (_number);
+		_num[0] = '0';
+		_num[1] = '\0';
+		return (_num);
 	}
-	/* Check NULL */
+	/* Checks for  NULL */
 
-	_number[n_digits] = '\0';
-	for (i = n_digits - 1; number != 0; number /= 10, i--)
-		_number[i] = (number % 10) + '0';
+	_num[n_dgts] = '\0';
+	for (i = n_dgts - 1; number != 0; number /= 10, i--)
+		_num[i] = (number % 10) + '0';
 
-	return (_number);
+	return (_num);
 }
 
 
@@ -69,16 +69,16 @@ int is_numerical(unsigned int n)
  */
 int _atoi(char *s)
 {
-	unsigned int number, i;
+	unsigned int numbers, i;
 	int sign;
 
 	sign = 1;
-	number = 0;
+	numbers = 0;
 	for (i = 0; s[i] != '\0'; i++)
 	{
 		if (is_numerical(s[i]))
 		{
-			number = (s[i] - 48)	+ number * 10;
+			numbers = (s[i] - 48)	+ numbers * 10;
 
 			if (s[i + 1] == ' ')
 				break;
@@ -90,7 +90,7 @@ int _atoi(char *s)
 
 	}
 
-	return (number * sign);
+	return (numbers * sign);
 }
 
 /**

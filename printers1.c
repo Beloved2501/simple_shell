@@ -29,9 +29,9 @@ int _putchar_to_fd(char c, int fd)
  **/
 int print_to_fd(char *msg, int fd)
 {
-	int size;
+	int sizes;
 
-	size = _strlen(msg);
+	sizes = _strlen(msg);
 
-	return (write(fd, msg, size));
+	return (write(fd, msg, sizes));
 }

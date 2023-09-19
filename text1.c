@@ -23,21 +23,21 @@ void prompt(general_t *info)
  **/
 char *read_prompt()
 {
-	char *buf;
-	int res;
+	char *buffer;
+	int result;
 	size_t size;
 
-	buf = NULL;
+	buffer = NULL;
 
-	res = getline(&buf, &size, stdin);
+	result = getline(&buffer, &size, stdin);
 
-	if (res == EOF)
+	if (result == EOF)
 	{
-		free_memory_p((void *) buf);
+		free_memory_p((void *) buffer);
 		return (NULL);
 	}
 
-	return (buf);
+	return (buffer);
 }
 
 /**
@@ -50,41 +50,41 @@ char *read_prompt()
 void start_prompt(general_t *info)
 {
 	char *buff;
-	char **arguments;
-	char *path;
+	char **argums;
+	char *path1;
 
 	signal(SIGINT, sigintHandler);
 	while (1)
 	{
 		prompt(info);
 
-		path = _getenv("PATH");
-		is_current_path(path, info);
+		path1 = _getenv("PATH");
+		is_current_path(path1, info);
 
-		info->environment = path;
+		info->environment = path1;
 		buff = read_prompt();
 		if (buff == NULL)
 		{
 			print(info->mode == INTERACTIVE ? "exit\n" : "");
-			free(path);
+			free(path1);
 			break;
 		}
 
 		info->n_commands++;
 		if (buff[0] != '\n')
 		{
-			arguments = split_words(buff, " \t\n");
+			argums = split_words(buff, " \t\n");
 
-			info->arguments = arguments;
+			info->arguments = argums;
 			info->buffer = buff;
-			analyze_patterns(info, arguments);
-			analyze(arguments, info, buff);
+			analyze_patterns(info, argums);
+			analyze(argums, info, buff);
 
-			free_memory_pp((void *) arguments);
+			free_memory_pp((void *) argums);
 		}
 
 		free_memory_p((void *) buff);
-		free_memory_p((void *) path);
+		free_memory_p((void *) path1);
 	}
 
 }

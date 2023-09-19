@@ -47,14 +47,14 @@ char *pattern_handler(general_t *info, char *string)
 
 char *replace_value(general_t *info, int *index, char *string)
 {
-	int i, new_s, old_s;
-	char *value;
+	int i, new_str, old_str;
+	char *val;
 
 	i = *index;
 	i++;
 
-	value = replacement(info, index, string + i);
-	if (value == NULL)
+	val = replacement(info, index, string + i);
+	if (val == NULL)
 	{
 		string = _strcpy(string, "");
 
@@ -62,13 +62,13 @@ char *replace_value(general_t *info, int *index, char *string)
 		;
 	}
 
-	old_s = _strlen(string);
-	new_s = _strlen(value) + 1;
+	old_str = _strlen(string);
+	new_str = _strlen(val) + 1;
 
-	string = _realloc(string, old_s, new_s);
-	string = _strcpy(string, value);
+	string = _realloc(string, old_str, new_str);
+	string = _strcpy(string, val);
 
-	free_memory_p(value);
+	free_memory_p(val);
 	*index = i;
 	return (string);
 }

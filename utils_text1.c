@@ -27,14 +27,14 @@ int _strlen(char *msg)
  */
 char *_strcat(char *dest, char *src)
 {
-	int l_dest, i;
+	int dest1, i;
 
-	l_dest = _strlen(dest);
+	dest1 = _strlen(dest);
 
-	for (i = 0; src[i] != '\0'; i++, l_dest++)
-		dest[l_dest] = src[i];
+	for (i = 0; src[i] != '\0'; i++, dest1++)
+		dest[dest1] = src[i];
 
-	dest[l_dest] = '\0';
+	dest[dest1] = '\0';
 
 	return (dest);
 }

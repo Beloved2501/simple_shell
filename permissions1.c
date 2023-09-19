@@ -38,10 +38,10 @@ int is_executable(char *filename)
  **/
 int is_file(char *file)
 {
-	int i, size;
+	int i, size1;
 
-	size = _strlen(file);
-	for (i = 0; i < size; i++)
+	size1 = _strlen(file);
+	for (i = 0; i < size1; i++)
 		if (file[i] == '/')
 			return (is_executable(file));
 
