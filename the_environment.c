@@ -18,7 +18,8 @@ char *_getenv(const char *name)
 
 	size = _strlen((char *) name);
 
-	for (env = environ; *env; ++env)
+	env = environ;
+	while (*env)
 	{
 		aux = _strdup(*env);
 
@@ -32,6 +33,7 @@ char *_getenv(const char *name)
 		if (_strlen(token) != size)
 		{
 			free(aux);
+			env++;
 			continue;
 		}
 
@@ -45,6 +47,7 @@ char *_getenv(const char *name)
 		}
 
 		free(aux);
+		env++;
 	}
 
 	return (NULL);
@@ -75,7 +78,7 @@ char *which(char *filename, general_t *info)
 	slash = _strcpy(slash, "/");
 	slash = _strcat(slash, filename);
 
-	while (token != NULL)
+	for (; token != NULL; token = strtok(NULL, ":"))
 	{
 		tmp_path = malloc(_strlen(token) + size);
 		tmp_path = _strcpy(tmp_path, token);
@@ -124,9 +127,14 @@ void get_full_env(void)
 	char **tmp;
 	int i;
 
-	for (i = 0, tmp = environ; tmp[i] != NULL; i++)
+	i = 0;
+
+	tmp = environ;
+
+	while (tmp[i] != NULL)
 	{
 		print(tmp[i]);
 		_putchar('\n');
+		i++;
 	}
 }

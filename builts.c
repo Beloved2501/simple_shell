@@ -34,13 +34,14 @@ int check_builtin(general_t *info, char **arguments)
 	};
 
 	size = sizeof(builtins) / sizeof(builtins[0]);
-	for (i = 0; i < size; i++)
+	while (i < size)
 	{
 		if (_strcmp(info->command, builtins[i].command) == 0)
 		{
 			builtins[i].func(info, arguments);
 			return (_TRUE);
 		}
+		i++;
 	}
 
 	return (_FALSE);

@@ -18,9 +18,14 @@ char *message_selector(general_t info)
 	};
 
 	n_options = sizeof(messages) / sizeof(messages[0]);
-	for (i = 0; i < n_options; i++)
+	while (i < n_options)
+	{
 		if (info.error_code == messages[i].code)
+		{
 			return (messages[i].message);
+		}
+		i++;
+	}
 
 	return ("");
 }
