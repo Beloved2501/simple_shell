@@ -91,8 +91,8 @@ char *_strdup(char *str)
 /**
  * _strcmp - this function Compare two strings
  *
- * @s1: this is the first String 
- * @s2: this is the second String 
+ * @s1: this is the first String
+ * @s2: this is the second String
  *
  * Return: returns Integer
  */
