@@ -25,10 +25,7 @@ void free_memory_pp(void **ptr)
 {
 	void **tmp;
 
-	while (*tmp != NULL)
-	{
+	for (tmp = ptr; *tmp != NULL; tmp++)
 		free_memory_p(*tmp);
-		tmp++;
-	}
 	free_memory_p(ptr);
 }
