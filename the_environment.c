@@ -124,7 +124,7 @@ void get_full_env(void)
 	char **tmp;
 	int i;
 
-	for (i = 0; tmp = environ; tmp[i] != NULL; i++)
+	for (i = 0, tmp = environ; tmp[i] != NULL; i++)
 	{
 		print(tmp[i]);
 		_putchar('\n');
